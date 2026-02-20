@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baymax Automations — What You Think Is What We Make</title>
+  <meta name="description"
+    content="Baymax Automations — AI-powered system automations for communication, data, and workflow orchestration. What you think is what we make." />
+  <meta property="og:title" content="Baymax Automations" />
+  <meta property="og:description"
+    content="AI-based system automations that transform how businesses communicate, schedule, and operate." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+
+<body>
+  <!-- ═══ Baymax Logo (top of page) ═══ -->
+  <div class="logo-strip" id="logo-strip" aria-label="Baymax Automations logo">
+    <span class="eye" aria-hidden="true"></span>
+    <span class="eye-bridge" aria-hidden="true"></span>
+    <span class="eye" aria-hidden="true"></span>
+  </div>
+
+  <!-- ═══ Main Content ═══ -->
+  <main id="app" role="main"></main>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 Baymax Automations. All rights reserved.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#what-we-do">What We Do</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ═══ Taskbar Navigation ═══ -->
+  <header class="taskbar" id="taskbar">
+    <nav class="taskbar-inner container--lg" aria-label="Main navigation">
+      <a href="#home" class="taskbar-logo" aria-label="Baymax Automations home">
+        <img src="/svg-text-logo.svg" alt="Baymax Automations" width="140" height="40" />
+      </a>
+      <div class="taskbar-links" id="nav-links">
+        <a href="#what-we-do" class="taskbar-link" data-page="what-we-do">WHAT WE DO</a>
+        <a href="#contact" class="taskbar-link" data-page="contact">CONTACT US</a>
+        <a href="#pricing" class="taskbar-link" data-page="pricing">PRICING</a>
+      </div>
+      <div class="taskbar-actions">
+        <a href="#login" class="btn-login" data-page="login">LOGIN</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <!-- Mobile menu panel -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="#what-we-do" class="mobile-link">WHAT WE DO</a>
+      <a href="#contact" class="mobile-link">CONTACT US</a>
+      <a href="#pricing" class="mobile-link">PRICING</a>
+      <a href="#login" class="mobile-link mobile-login">LOGIN</a>
+    </div>
+  </header>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
