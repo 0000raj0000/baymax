@@ -63,6 +63,7 @@ export function renderContact() {
               <label for="contact-desc">How can we help?</label>
               <textarea id="contact-desc" name="description" placeholder="Describe your project or question..." required></textarea>
             </div>
+            <input type="text" name="website" id="contact-website" style="display:none;">
             <button type="submit" class="btn-submit">Send Message →</button>
           </form>
         </article>
@@ -90,16 +91,59 @@ export function initContactPage() {
     // Form handler (client side only)
     const form = document.getElementById('contact-form');
     if (form) {
-        form.addEventListener('submit', (e) => {
+        // form.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     const btn = form.querySelector('.btn-submit');
+        //     btn.textContent = 'Message Sent ✓';
+        //     btn.style.background = 'var(--color-success)';
+        //     setTimeout(() => {
+        //         btn.textContent = 'Send Message →';
+        //         btn.style.background = '';
+        //         form.reset();
+        //     }, 2500);
+        // });
+
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
+        
             const btn = form.querySelector('.btn-submit');
-            btn.textContent = 'Message Sent ✓';
-            btn.style.background = 'var(--color-success)';
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+        
+            const formData = {
+                name: document.getElementById('contact-name').value.trim(),
+                phone: document.getElementById('contact-phone').value.trim(),
+                address: document.getElementById('contact-address').value.trim(),
+                message: document.getElementById('contact-desc').value.trim(),
+                website: document.getElementById('contact-website').value.trim()
+            };
+        
+            try {
+                const response = await fetch("https://contact-api.rajnamadev0.workers.dev", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+        
+                if (response.ok) {
+                    btn.textContent = 'Message Sent ✓';
+                    btn.style.background = 'var(--color-success)';
+                    form.reset();
+                } else {
+                    btn.textContent = 'Failed. Try Again';
+                }
+        
+            } catch (error) {
+                btn.textContent = 'Error. Try Again';
+            }
+        
             setTimeout(() => {
                 btn.textContent = 'Send Message →';
                 btn.style.background = '';
-                form.reset();
-            }, 2500);
+                btn.disabled = false;
+            }, 3000);
         });
     }
 }
