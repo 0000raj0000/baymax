@@ -119,7 +119,7 @@ export function initContactPage() {
             };
         
             try {
-                const response = await fetch("https://contact-api.rajnamadev0.workers.dev", {
+                const response = await fetch("/api/contact", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
